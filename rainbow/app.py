@@ -1,5 +1,4 @@
-from flask import Flask, render_template,
-current_app as app
+from flask import Flask, render_template, current_app as app
 
 app = Flask(__name__)
 
@@ -8,32 +7,32 @@ def index():
     return "Welcome to Americas Rainbow Project"
 
 @app.route('/red')
-def red.html():
-    return render_template('red.html')
+def red_html():
+    return render_template('red_html')
 
 @app.route('/orange')
-def orange.html():
-    return render_template('orange.html')
+def orange_html():
+    return render_template('orange_html')
 
 @app.route('/yellow')
-def yellow.html():
-    return render_template('yellow.html')
+def yellow_html():
+    return render_template('yellow_html')
 
 @app.route('/green')
-def green.html():
-    return render_template('green.html')
+def green_html():
+    return render_template('green_html')
 
 @app.route('/blue')
-def blue.html():
-    return render_template('blue.html')
+def blue_html():
+    return render_template('blue_html')
 
 @app.route('/indigo')
-def indigo.html():
-    return render_template('indigo.html')
+def indigo_html():
+    return render_template('indigo_html')
 
 @app.route('/violet')
-def violet.html():
-    return render_template('violet.html')
+def violet_html():
+    return render_template('violet_html')
 
 
 if __name__ == '__main__':
