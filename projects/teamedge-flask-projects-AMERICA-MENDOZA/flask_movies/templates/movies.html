@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="movies.html">
+
+</head>
+<body>
+    {% for result in results %}
+        <div class = "movies_dic">
+            <h1>Title: {{result['title']}}</h1>
+            <p>Year Released : {{result['year']}}</p>
+
+            {% if result['cast'] == [] %}
+                <p>Cast Info N/A</p>
+            {% else %}
+                <p>Cast: {{result['cast']}}</p>
+            {% endif %}
+
+            {% if result['genre'] == [] %}
+                <p>Genres Info N/A</p>
+            {% else %}
+                <p>Genres: {{results['genres']}}</p>
+            {% endif %}
+
+
+        </div>
+    {% endfor %}
+
+</body>
+</html>
