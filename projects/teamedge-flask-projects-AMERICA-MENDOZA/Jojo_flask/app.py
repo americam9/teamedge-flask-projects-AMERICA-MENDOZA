@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, current_app as app
-import requests
 from sense_hat import SenseHat
 from time import sleep
 
@@ -13,8 +12,7 @@ def index():
 @app.route('/success',methods = ['GET', 'POST'])
 def success():
    message = request.form['message']
-   name = request.form['name']
-   sense.show_message(message + " by " + name
+   sense.show_message(message)
    return render_template("success.html", message = message)
 
 
