@@ -15,6 +15,28 @@ def success():
    sense.show_message(message)
    return render_template("success.html", message = message)
 
+@app.route('/send', methods=['POST'])
+def sent():
+    message = request.form['message']
+    name = request.form['name']
+    conn = sqlite3.connect('./static/data/senseDisplay.db')
+    curs = conn.cursor()
+    curs.execute("INSERT INTO messages (name, message) VALUES((?),(?))",(name, message))
+    conn.commit()
+    conn.close()
+    return render_template('sent.html', message=message, name=name)
+
+@app.route('/all')
+def all():
+    conn = sqlite3.connect('./static/data/senseDisplay.db')
+    curs = conn.cursor()
+    messages = []
+    rows = curs.execute("SELECT * from messages")
+    for row in rows:
+        message = {'name': row[0], 'message':row[1]}
+        messages.append(message)
+    conn.close()
+    return render_template('all.html', messages = messages)
 
 
 if __name__ == '__main__':
